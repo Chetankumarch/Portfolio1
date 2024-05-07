@@ -29,15 +29,9 @@ export default function VortexDemo() {
           <a href="https://www.linkedin.com/in/chetan-kumar-ch" target="_blank" rel="noopener noreferrer" className="text-white text-4xl">
             <FaLinkedin />
           </a>
-          {/* <a href="personal/Chetan_Kumar_resume.pdf" download="Chetan_Kumar_Resume.pdf" className="flex items-center px-4 py-2 bg-grey-500 hover:bg-grey-600 transition duration-200 rounded-lg text-white text-2xl">
+          <a href="personal/Chetan_Kumar_resume.pdf" download="Chetan_Kumar_Resume.pdf" className="flex items-center px-4 py-2 bg-slate-600 hover:bg-slate-800 transition duration-200 rounded-lg text-white text-2xl">
             <FaDownload className="mr-2"/>Resume
-          </a> */}
-          <Button 
-          borderRadius="1.75rem" href="personal/Chetan_Kumar_resume.pdf" download="Chetan_Kumar_Resume.pdf"
-        className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 text-2xl"
-        >
-        <FaDownload className="mr-2"/>Resume
-        </Button>
+          </a>
         </div>
       </Vortex>
     </div>
