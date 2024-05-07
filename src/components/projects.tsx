@@ -15,7 +15,7 @@ export default function TabsDemo() {
                                     Learn More
           </Link>
           <Image
-          src="/personal/git.png"
+          src="/personal/preciew.jpeg"
           alt="dummy image"
           width="1000"
           height="1000"
@@ -31,7 +31,7 @@ export default function TabsDemo() {
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
           <p className="text-xl text-justify">A dynamic audio room application designed to facilitate scalable and robust content management, leveraging React.js, Spring Boot, and DynamoDB, with enhanced performance and cost efficiency through Amazon Fargate and Load Balancer integration.
           </p>
-          <Link className="text-xl text-cyan" href={"https://github.com/Chetankumarch/Audio-Rooms-Cloud-Computing"}>
+          <Link className="text-xl text-cyan-500" href={"https://github.com/Chetankumarch/Audio-Rooms-Cloud-Computing"}>
                                     Learn More
           </Link>
           <Image
@@ -52,9 +52,9 @@ export default function TabsDemo() {
           <p className="text-xl text-justify">
 A multimodal AI chat application that enhances user experience by seamlessly integrating audio, image, and PDF processing, equipped with advanced voice-to-text transcription and optimized for efficient multimedia handling across various devices.
           </p>
-          <Link className="text-xl" href={"#"}>
+          {/* <Link className="text-xl text-cyan-500" href={"#"}>
                                     Learn More
-          </Link>
+          </Link> */}
           <Image
           src="/personal/multimodal.png"
           alt="dummy image"
@@ -73,9 +73,9 @@ A multimodal AI chat application that enhances user experience by seamlessly int
           <p className="text-xl text-justify">
           This project aims at analyzing 6.2 million records of US domestic flights to optimize travel schedules and reduce delays, using MongoDB for data aggregation and D3 for intuitive visualizations, thereby enhancing flight scheduling and reliability.
           </p>
-          <Link className="text-xl" href={"#"}>
+          {/* <Link className="text-xl text-cyan-500" href={"#"}>
                                     Learn More
-          </Link>
+          </Link> */}
           <Image
           src="/personal/mongo.png"
           alt="dummy image"

@@ -4,21 +4,18 @@ import { Label } from "../components/ui/label";
 import { Input } from "../components/ui/input";
 import emailjs from '@emailjs/browser';
 import { cn } from "@/utils/cn";
-import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
 import {
   IconBrandGithub,
   IconBrandGoogle,
   IconBrandOnlyfans,
-  IconBrandLinkedin,
 } from "@tabler/icons-react";
-import { TypewriterEffectSmooth } from '../components/ui/typewriter-effect';
 
 interface EmailJSResponse {
     status: number;
     text: string;
 }
 
-function CombinedComponent() {
+export default function SignupFormDemo() {
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -54,26 +51,15 @@ function CombinedComponent() {
                 alert('Failed to send message.');
             });
     };
-
-    const words = [
-        { text: "Built", },
-        { text: "with", },
-        { text: "love", },
-        { text: "by", },
-        { text: "Chetan Kumar.", className: "text-blue-500 dark:text-blue-500", },
-    ];
-
-    return (
-        <div  className="top-[12rem] relative flex flex-col items-center justify-center h-[36rem]">
-          <h1  id="contact" className="text-4xl pb-2 pt-28 underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">Get In Touch</h1>
-          <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      {/* <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+  return (
+    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
+      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Welcome to Aceternity
-      </h2> */}
-      {/* <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
+      </h2>
+      <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
         Login to aceternity if you can because we don&apos;t have a login flow
         yet
-      </p> */}
+      </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
@@ -105,8 +91,7 @@ function CombinedComponent() {
         <div className="flex flex-col space-y-4">
           <button
             className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="button"
-            onClick={() => window.open("https://github.com/Chetankumarch", "target=_blank", "rel= noopener noreferrer")}
+            type="submit"
           >
             <IconBrandGithub className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
@@ -116,25 +101,28 @@ function CombinedComponent() {
           </button>
           <button
             className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="button"
-            onClick={() => window.open("https://www.linkedin.com/in/chetan-kumar-ch", "target=_blank", "rel= noopener noreferrer")}
+            type="submit"
           >
-            <IconBrandLinkedin className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
+            <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-              LinkedIn
+              Google
+            </span>
+            <BottomGradient />
+          </button>
+          <button
+            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+            type="submit"
+          >
+            <IconBrandOnlyfans className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
+            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+              OnlyFans
             </span>
             <BottomGradient />
           </button>
         </div>
       </form>
     </div>
-                
-                <TypewriterEffectSmooth words={words} />
-                <p>© 2024 Chetan Kumar. All rights reserved.</p>
-          
-      </div>
-    );
-  
+  );
 }
 
 const BottomGradient = () => {
@@ -159,5 +147,3 @@ const LabelInputContainer = ({
     </div>
   );
 };
-
-export default CombinedComponent;
