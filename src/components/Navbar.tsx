@@ -12,12 +12,14 @@ export default function NavbarDemo() {
 
 function Navbar({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
-  const ref = useRef(null);
+  // Specifying the type of the ref as HTMLDivElement
+  const ref = useRef<HTMLDivElement>(null);
 
   // Close the menu when clicking outside
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      // Updated to check if ref.current exists and contains the target
+      if (ref.current && !ref.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     }
@@ -26,11 +28,11 @@ function Navbar({ className }: { className?: string }) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [ref]);
+  }, [ref]);  // No need to destructure ref here since it does not change
 
   return (
-    <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 text-2xl bg-slate-800 shadow-md rounded-2xl", className)} ref={ref}>
-      <div className="flex justify-between items-center p-2">
+    <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50  text-2xl bg-slate-800 shadow-md rounded-2xl", className)} ref={ref}>
+      <div className="{`flex justify-between items-center p-2 ${isOpen ? 'bg-slate-800' : 'bg-transparent sm:bg-slate-800'}`}">
         <div className="block sm:hidden">
           {/* Toggle button for mobile view */}
           <button onClick={() => setIsOpen(!isOpen)} className="text-xl text-black bg-cyan-200 p-2 rounded">
