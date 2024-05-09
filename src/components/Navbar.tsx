@@ -1,8 +1,6 @@
-"use client";
-import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../components/ui/navbar-menu";
+'use client'
+import React, { useState, useRef, useEffect } from "react";
 import { cn } from "@/utils/cn";
-
 
 export default function NavbarDemo() {
   return (
@@ -13,19 +11,41 @@ export default function NavbarDemo() {
 }
 
 function Navbar({ className }: { className?: string }) {
-  const [active, setActive] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef(null);
+
+  // Close the menu when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref]);
+
   return (
-    <div
-      className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 text-2xl", className)}
-    >
-      <Menu setActive={setActive}>
-      
-                <a href={"#"}>Home</a>
-                <a href={"#workexp"}>Experience</a>
-                <a href={"#skills"}>Skills</a>
-                <a href={"#projects"}>Projects</a>
-                <a href={"#contact"}>Contact</a>
-      </Menu>
+    <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 text-2xl bg-slate-800 shadow-md rounded-2xl", className)} ref={ref}>
+      <div className="flex justify-between items-center p-2">
+        <div className="block sm:hidden">
+          {/* Toggle button for mobile view */}
+          <button onClick={() => setIsOpen(!isOpen)} className="text-xl text-black bg-cyan-200 p-2 rounded">
+            {isOpen ? 'Close' : 'Menu'}
+          </button>
+        </div>
+        {/* Navigation links, hidden on mobile initially, shown when menu is open or on larger screens */}
+        <div className={`${isOpen ? 'flex' : 'hidden'} flex-col sm:flex sm:flex-row sm:items-center sm:justify-between w-full`}>
+          <a href="#" className="p-2 hover:text-cyan-800">Home</a>
+          <a href="#workexp" className="p-2 hover:text-cyan-800">Experience</a>
+          <a href="#skills" className="p-2 hover:text-cyan-800">Skills</a>
+          <a href="#projects" className="p-2 hover:text-cyan-800">Projects</a>
+          <a href="#contact" className="p-2 hover:text-cyan-800">Contact</a>
+        </div>
+      </div>
     </div>
   );
 }

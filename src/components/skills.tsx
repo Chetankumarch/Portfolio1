@@ -6,7 +6,7 @@ import { SiReact, SiNextdotjs, SiJavascript, SiSpringboot, SiMongodb, SiNodedotj
 
 export default function CardHoverEffectDemo() {
   return (
-    <div id="skills" className="w-full mx-auto px-8">
+    <div id="skills" className="w-full mx-auto px-8 bg-black">
         <h2 className="text-white text-4xl text-center pt-24 underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">Skills</h2>
       <HoverEffect items={skills} />
     </div>
